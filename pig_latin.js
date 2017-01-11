@@ -24,3 +24,9 @@ let convert = (sentence) => {
 }
 
 // Your CLI code here
+let argv = process.argv
+let arr = []
+for (var i = 2; i < argv.length; i++) {
+  arr.push(convert(argv[i]))
+}
+console.log(arr.join(' '))
