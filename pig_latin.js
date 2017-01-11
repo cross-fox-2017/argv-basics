@@ -32,6 +32,9 @@ function pig_latin (inputKata) {
 
 
 // Your CLI code here
-process.argv.forEach((inputKata, index) => {
-  console.log(`${index}: ${pig_latin(inputKata)}`);
-});
+// process.argv.forEach((inputKata, index) => {
+//   console.log(`${index}: ${pig_latin(inputKata)}`);
+// });
+
+let argv = process.argv.splice(2).join(' ')
+console.log(pig_latin(`${argv}`))
