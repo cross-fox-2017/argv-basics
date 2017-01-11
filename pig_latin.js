@@ -24,3 +24,12 @@ let convert = (sentence) => {
 }
 
 // Your CLI code here
+var hasil = [];
+
+process.argv.forEach((val, index) => {
+  if (index > 1){
+    hasil.push(`${convert(val)}`);
+  }
+})
+
+console.log(`Kalimat anda dalam bahasa Pig Latin: "${hasil.join(' ')}"`)
