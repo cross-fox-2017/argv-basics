@@ -41,7 +41,7 @@ function pig_latin(answer){
     }
   }
 
-function pig_sentence(answer){
+function pig_sentence(answer, index){
   let arrResult = answer.split(" ");
 
   if(arrResult.length === 1){
@@ -56,6 +56,9 @@ function pig_sentence(answer){
 }
 
 // Your CLI code here
-process.argv.forEach((answer, index) => {
-  console.log(`${index}: ${pig_sentence(answer)}`);
-});
+// process.argv.forEach((answer, index) => {
+//   console.log(`${index}: ${pig_sentence(answer)}`);
+// });
+
+let arg = process.argv.splice(2).join(' ')
+console.log(pig_sentence(`${(arg)}`));
