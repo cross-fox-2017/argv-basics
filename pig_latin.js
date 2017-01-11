@@ -30,4 +30,5 @@ let convert = (sentence) => {
 //   }
 // })
 let param = process.argv.splice(2, process.argv.length-2)
-  console.log(convert(`${param.join(' ')}`));
+
+console.log(convert(`${param.join(' ')}`));
