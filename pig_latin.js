@@ -23,4 +23,7 @@ let convert = (sentence) => {
   return result.join(" ")
 }
 
+let arg = process.argv.splice(2,4).join(' ')
+console.log(convert(`${(arg)}`));
+
 // Your CLI code here
