@@ -23,4 +23,11 @@ let convert = (sentence) => {
   return result.join(" ")
 }
 
+
 // Your CLI code here
+// process.argv.forEach((val, index, array) => {
+//   console.log(`${index}: ${val}`)
+// })
+
+let param = process.argv.splice(2,process.argv.length-2)
+console.log(convert(param.join(" ")))
