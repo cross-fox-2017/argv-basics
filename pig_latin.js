@@ -24,3 +24,13 @@ let convert = (sentence) => {
 }
 
 // Your CLI code here
+
+var arr = []
+var argv = process.argv
+
+for (var i = 0; i < argv.length; i++) {
+  arr.push(argv[i])
+}
+
+var str = arr.join(' ');
+console.log(convert(str));
