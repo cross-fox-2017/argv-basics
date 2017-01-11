@@ -24,3 +24,8 @@ let convert = (sentence) => {
 }
 
 // Your CLI code here
+process.argv.forEach((val, index, array) => {
+  if (`${index}` >= 2) {
+    console.log(convert(`${val}`));
+  }
+})
