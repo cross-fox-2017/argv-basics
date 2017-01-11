@@ -1,26 +1,78 @@
-'use strict'
+for(let i = 2; i < process.argv.length; i++){
 
-let pigLatin = (word) => {
-  let firstLetter = word.charAt(0);
-  if(isPowel(firstLetter)){
-    return word
+      let answer = process.argv[i]
+
+      if(competeSentence(answer))
+        {
+          var len = answer.split(" ")
+          var r = "";
+          console.log('Input : '+answer);
+          for(var count = 0;count < len.length; count++){
+            r += " "+pigLatin(len[count]);
+          }
+          console.log("Output : "+r);
+        }else{
+          console.log('Input : '+answer);
+          console.log('Output : '+pigLatin(answer));
+
+        }
+
+
+}
+
+
+
+
+
+// const readline = require('readline');
+//
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+
+// rl.setPrompt('Masukan Kata untuk Dikonversi ke Latin > ');
+// rl.prompt();
+// rl.on("line", (answer) => {
+
+//   rl.prompt();
+//
+// })
+
+function pigLatin(word){
+
+  if(isVowel(word[0])){
+    return word;
   }else{
-    return `${word.substr(1)}${firstLetter}ay`;
+     let temp = "";
+     for(var i = 0; i < word.length ;i++){
+        if(!isVowel(word[i]))
+        {
+          temp += word[i];
+        }else{
+          break;
+        }
+    }
+    return word.substring(i,word.length)+"-"+temp+"ay";
   }
 }
 
-let isPowel = (char) => {
-  return (/^[aeiou]$/i).test(char);
+function competeSentence(word){
+    if(word.split(" ").length > 1)
+    {
+      return true;
+    }
+    return false;
 }
 
-let convert = (sentence) => {
-  let result = []
-  let words = sentence.trim().split(/\s+/g)
-  for (let i=0;i<words.length;i++) {
-    result[i] = pigLatin(words[i])
+
+function isVowel(c){
+  var vowel = ["a","e","i","o","u","y"];
+
+  for(var count = 0; count < vowel.length; count++) {
+    if(c == vowel[count]){
+      return true;
+    }
   }
-
-  return result.join(" ")
+  return false;
 }
-
-// Your CLI code here
