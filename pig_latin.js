@@ -1,26 +1,64 @@
 'use strict'
 
-let pigLatin = (word) => {
-  let firstLetter = word.charAt(0);
-  if(isPowel(firstLetter)){
-    return word
+// let pigLatin = (word) => {
+//   let firstLetter = word.charAt(0);
+//   if(isPowel(firstLetter)){
+//     return word
+//   }else{
+//     return `${word.substr(1)}${firstLetter}ay`;
+//   }
+// }
+//
+// let isPowel = (char) => {
+//   return (/^[aeiou]$/i).test(char);
+// }
+//
+// let convert = (sentence) => {
+//   let result = []
+//   let words = sentence.trim().split(/\s+/g)
+//   for (let i=0;i<words.length;i++) {
+//     result[i] = pigLatin(words[i])
+//   }
+//
+//   return result.join(" ")
+// }
+
+function pig_latin(answer){
+  let strVowel = ["A","I","U","E","O"];
+  let result = "";
+
+  if(strVowel.indexOf(answer[0].toUpperCase()) >= 0 ){
+    return answer;
   }else{
-    return `${word.substr(1)}${firstLetter}ay`;
-  }
-}
-
-let isPowel = (char) => {
-  return (/^[aeiou]$/i).test(char);
-}
-
-let convert = (sentence) => {
-  let result = []
-  let words = sentence.trim().split(/\s+/g)
-  for (let i=0;i<words.length;i++) {
-    result[i] = pigLatin(words[i])
+    let arrTmp = -1;
+    for (let i = 0; i < answer.length; i++){
+      if(strVowel.indexOf(answer[i].toUpperCase()) >= 0){
+        arrTmp = i;
+        result = answer.substring(0,i);
+        return answer.slice(arrTmp, answer.length) + result + "ay";
+        }
+      }
+    }
   }
 
-  return result.join(" ")
+function pig_sentence(answer, index){
+  let arrResult = answer.split(" ");
+
+  if(arrResult.length === 1){
+    return pig_latin(answer);
+  }else {
+    let resultSentence = [];
+    for(let i = 0; i < arrResult.length; i++){
+      resultSentence.push(pig_latin(arrResult[i]))
+    }
+    return resultSentence.join(" ");
+  }
 }
 
 // Your CLI code here
+// process.argv.forEach((answer, index) => {
+//   console.log(`${index}: ${pig_sentence(answer)}`);
+// });
+
+let arg = process.argv.splice(2).join(' ')
+console.log(pig_sentence(`${(arg)}`));
