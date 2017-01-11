@@ -24,8 +24,10 @@ let convert = (sentence) => {
 }
 
 // Your CLI code here
-process.argv.forEach((val, index, array) => {
-  if (`${index}` >= 2) {
-    console.log(convert(`${val}`));
-  }
-})
+// process.argv.forEach((val, index, array) => {
+//   if (`${index}` >= 2) {
+//     console.log(convert(`${val}`));
+//   }
+// })
+let param = process.argv.splice(2, process.argv.length-2)
+  console.log(convert(`${param.join(' ')}`));
