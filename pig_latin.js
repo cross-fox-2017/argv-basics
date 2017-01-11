@@ -26,7 +26,7 @@ let convert = (sentence) => {
 // Your CLI code here
 
 let arg = [];
-// bisa pake splice juga (untuk todo.js)
+// bisa pake slice juga (untuk todo.js)
 for (let i = 2; i < process.argv.length; i++) {
   arg[i] = process.argv[i];
   console.log(convert(arg[i]));
